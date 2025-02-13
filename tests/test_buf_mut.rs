@@ -1,7 +1,7 @@
 #![warn(rust_2018_idioms)]
 
-use bytes::buf::UninitSlice;
-use bytes::{BufMut, BytesMut};
+use elems::buf::UninitSlice;
+use elems::{BufMut, ElemsMut};
 use core::fmt::Write;
 use core::mem::MaybeUninit;
 use core::usize;
@@ -94,7 +94,7 @@ fn test_vec_advance_mut() {
 
 #[test]
 fn test_clone() {
-    let mut buf = BytesMut::with_capacity(100);
+    let mut buf = ElemsMut::with_capacity(100);
     buf.write_str("this is a test").unwrap();
     let buf2 = buf.clone();
 
